@@ -1,0 +1,53 @@
+VCF Variant Counter
+================================================================================
+
+SCRIPT PURPOSE AND REQUIRED FEATURES
+-------------------------------------
+Write a bash script called vcf_counter.sh that reads a VCF file and counts the
+number of each variant type (SNP, insertion, deletion). The script should:
+
+- Accept a VCF filename as its only argument (plain text, not gzipped)
+- Skip all header lines (lines starting with #)
+- Classify each variant by comparing the REF and ALT columns:
+  SNP if both are single characters, insertion if REF is shorter than ALT,
+  deletion if REF is longer than ALT, other for anything else
+- Print the count of each variant type
+- Print the total number of variants
+- Exit with an error message if no argument is given or the file does not exist
+
+EXPECTED INPUT AND OUTPUT
+--------------------------
+Input: A VCF file.
+
+Output: Counts of each variant type and total.
+
+EXAMPLE
+-------
+Given the input file variants.vcf:
+
+  ##fileformat=VCFv4.2
+  #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+  chr1	100	.	A	G	50	PASS	.
+  chr1	200	.	AT	A	40	PASS	.
+  chr1	300	.	C	CGA	45	PASS	.
+  chr1	400	.	T	C	60	PASS	.
+
+Running:
+  ./vcf_counter.sh variants.vcf
+
+Expected output:
+  SNPs: 2
+  Insertions: 1
+  Deletions: 1
+  Total variants: 4
+
+SUBMISSION INSTRUCTIONS
+------------------------
+1. Create a public GitHub repository for this assignment.
+2. The repository should contain:
+   - vcf_counter.sh (the script, executable)
+   - README.md explaining what the script does, how to run it, and any
+     dependencies
+   - test.sh (a test script that creates sample input, runs vcf_counter.sh,
+     and checks the output against expected results, reporting pass or fail)
+3. Submit the HTTPS URL of your GitHub repository.
