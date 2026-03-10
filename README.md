@@ -51,3 +51,10 @@ The tests include:
 - normal input
 - edge case (header only)
 - error cases (missing arguments, nonexistent file)
+
+## AI Assistance
+
+Some assistance from ChatGPT was used during development of this project. 
+The AI tool was used to help clarify assignment instructions, explain Bash 
+commands, and review parts of the script logic. All code was written, 
+tested, and verified by the author.
