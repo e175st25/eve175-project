@@ -6,11 +6,11 @@ FAIL=0
 # Test 1: Normal input -- header and variants
 cat > /tmp/test_variants.vcf << 'EOF'
 ##fileformat=VCFv4.2
-#CHROM POS ID REF ALT QUAL FILTER INFO
-chr1 100 . A G 50 PASS .
-chr1 200 . AT A 40 PASS .
-chr1 300 . C CGA 45 PASS .
-chr1 400 . T C 60 PASS .
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr1	100	.	A	G	50	PASS	.
+chr1	200	.	AT	A	40	PASS	.
+chr1	300	.	C	CGA	45	PASS	.
+chr1	400	.	T	C	60	PASS	.
 EOF
 
 expected="SNPs: 2
@@ -33,7 +33,7 @@ fi
 # Test 2: Edge case  -- header only
 cat > /tmp/test_empty.vcf << 'EOF'
 ##fileformat=VCFv4.2
-#CHROM POS ID REF ALT QUAL FILTER INFO
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
 EOF
 
 expected="SNPs: 0
