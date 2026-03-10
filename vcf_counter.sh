@@ -20,3 +20,15 @@ if [[ "$VCF_FILE" != *.vcf ]]; then
     exit 1
 fi
 
+#counter
+TOTAL=$(grep -vc "^#" "$VCF_FILE")
+SNP=$(grep -v "^#" "$VCF_FILE" | awk -F'\t' 'length($4)==1 && length($5)==1' | wc -l)
+INSER=$(grep -v "^#" "$VCF_FILE" | awk -F'\t' 'length($4)<length($5)' | wc -l)
+DEL=$(grep -v "^#" "$VCF_FILE" | awk -F'\t' 'length($4)>length($5)' | wc -l)
+
+#report
+echo "SNPs: $SNP"
+echo "Insertions: $INSER"
+echo "Deletions: $DEL"
+echo "Total variants: $TOTAL"
+
