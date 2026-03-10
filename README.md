@@ -10,9 +10,11 @@ It also reports the total number of variants in the file.
 
 ## Usage
 Run the script with a VCF file as input: 
+
 ./vcf_counter.sh input.vcf
 
 Example: 
+
 ./vcf_counter.sh ~/programming_project/data/variants.vcf
 
 ## Input
@@ -29,15 +31,20 @@ The script prints the number of:
 - Total variants
 
 Example output: 
+
 SNPs: 9 
+
 Insertions: 5 
+
 Deletions: 6 
+
 Total variants: 20 
 
 ## Testing
 The repository includes a test script that runs several test cases.
 
 Run tests with: 
+
 ./test.sh 
 
 The tests include:
